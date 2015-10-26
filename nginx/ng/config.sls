@@ -20,3 +20,13 @@ nginx_config:
     - template: jinja
     - context:
         config: {{ nginx.server.config|json() }}
+
+nginx_fastcgi:
+  file.managed:
+    - name: /etc/nginx/fastcgi_params
+    - source: salt://nginx/ng/files/fastcgi_params
+
+nginx_rewrite_lunr:
+  file.managed:
+    - name: /etc/nginx/rewrite_lunr
+    - source: salt://nginx/ng/files/rewrite_lunr
