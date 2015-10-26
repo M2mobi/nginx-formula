@@ -31,3 +31,13 @@ nginx_config:
     - context:
         config: {{ nginx.server.config|json(sort_keys=False) }}
 {% endif %}
+
+nginx_fastcgi:
+  file.managed:
+    - name: /etc/nginx/fastcgi_params
+    - source: salt://nginx/files/default/fastcgi_params
+
+nginx_rewrite_lunr:
+  file.managed:
+    - name: /etc/nginx/rewrite_lunr
+    - source: salt://nginx/files/default/rewrite_lunr
