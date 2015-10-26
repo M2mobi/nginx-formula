@@ -41,3 +41,8 @@ nginx_rewrite_lunr:
   file.managed:
     - name: /etc/nginx/rewrite_lunr
     - source: salt://nginx/files/default/rewrite_lunr
+
+nginx_php:
+  file.managed:
+    - name: /etc/nginx/php.conf
+    - source: salt://nginx/files/default/php.conf
