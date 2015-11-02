@@ -21,6 +21,11 @@ nginx_config:
     - context:
         config: {{ nginx.server.config|json() }}
 
+nginx_default_config:
+  file.managed:
+    - name: /etc/nginx/conf.d/default.conf.disabled
+    - source: salt://nginx/ng/files/default.conf
+
 nginx_fastcgi:
   file.managed:
     - name: /etc/nginx/fastcgi_params
