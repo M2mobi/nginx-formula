@@ -84,6 +84,7 @@ nginx_server_available_dir:
 
 # Managed enabled/disabled state for servers
 {% for server, settings in nginx.servers.managed.items() %}
+{% if 'config' in settings %}
 {% if settings.config != None %}
 {% set conf_state_id = 'server_conf_' ~ loop.index0 %}
 {{ conf_state_id }}:
@@ -99,6 +100,7 @@ nginx_server_available_dir:
       - test -e {{ server_curpath(server) }}
     {% endif %}
 {% do server_states.append(conf_state_id) %}
+{% endif %}
 {% endif %}
 
 {% if settings.enabled != None %}
