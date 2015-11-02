@@ -46,3 +46,8 @@ nginx_php:
   file.managed:
     - name: /etc/nginx/php.conf
     - source: salt://nginx/files/default/php.conf
+
+nginx_default_config:
+  file.managed:
+    - name: /etc/nginx/conf.d/default.conf.disabled
+    - source: salt://nginx/files/default/default.conf
