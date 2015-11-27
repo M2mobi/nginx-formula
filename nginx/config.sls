@@ -51,3 +51,7 @@ nginx_default_config:
   file.managed:
     - name: /etc/nginx/conf.d/default.conf.disabled
     - source: salt://nginx/files/default/default.conf
+
+nginx_remove_default_config:
+  file.absent:
+    - name: /etc/nginx/conf.d/default.conf
