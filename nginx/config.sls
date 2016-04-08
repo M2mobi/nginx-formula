@@ -47,6 +47,13 @@ nginx_php:
     - name: /etc/nginx/php.conf
     - source: salt://nginx/files/default/php.conf
 
+{% if salt['grains.get']('ec2:account_id', '') == '069214163847' and salt['grains.get']('ec2_tags:role', '') == 'webserver' %}
+nginx_rewrite_m2mobi:
+  file.managed:
+    - name: /etc/nginx/rewrite_m2mobi
+    - source: salt://nginx/files/default/rewrite_m2mobi
+{% endif %}
+
 nginx_default_config:
   file.managed:
     - name: /etc/nginx/conf.d/default.conf.disabled
