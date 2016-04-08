@@ -40,6 +40,13 @@ nginx_rewrite_lunr:
     - name: /etc/nginx/rewrite_lunr
     - source: salt://nginx/ng/files/rewrite_lunr
 
+{% if salt['grains.get']('ec2:account_id', '') == '069214163847' and salt['grains.get']('ec2_tags:role', '') == 'webserver' %}
+nginx_rewrite_m2mobi:
+  file.managed:
+    - name: /etc/nginx/rewrite_m2mobi
+    - source: salt://nginx/ng/files/rewrite_m2mobi
+{% endif %}
+
 nginx_php:
   file.managed:
     - name: /etc/nginx/php.conf
