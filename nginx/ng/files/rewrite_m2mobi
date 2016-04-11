@@ -1,6 +1,16 @@
+rewrite ^(.)*/(statics|build)/(.*)$ /$1/$2/$3 last;
+rewrite ^/?$ /index.php last;
+
 rewrite ^/blog/nieuwe-stagiairs/?$ /blog/zes-frisse-stagiairs redirect;
 rewrite "^/[0-9\/]{11}(.+)" /blog/$1 redirect;
 rewrite ^/wp-content/(.*) /statics/wp-content/$1 redirect;
+
+rewrite ^/php-developer/?$ /jobs/back-end-ontwikkelaar redirect;
+rewrite ^/lead-ux-designer/?$ /jobs/lead-designer redirect;
+rewrite ^/technical-lead/?$ /jobs/technical-lead redirect;
+rewrite ^/ux-designer/?$ /jobs/designer redirect;
+rewrite ^/project-manager-met-passie-voor-mobiel/?$ /jobs/project-manager redirect;
+rewrite ^/work/?$ /jobs/ redirect;
 
 rewrite "^/([a-z]{2})/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/?$" /index.php?lang=$1&controller=$2&method=$3&param1=$4&param2=$5&param3=$6 break;
 rewrite "^/([a-z]{2})/([^/]+)/([^/]+)/([^/]+)/([^/]+)/?$" /index.php?lang=$1&controller=$2&method=$3&param1=$4&param2=$5 break;
@@ -14,25 +24,3 @@ rewrite ^/([^/]+)/([^/]+)/([^/]+)/([^/]+)/?$ /index.php?controller=$1&method=$2&
 rewrite ^/([^/]+)/([^/]+)/([^/]+)/?$ /index.php?controller=$1&method=$2&param1=$3 break;
 rewrite ^/([^/]+)/([^/]+)/?$ /index.php?controller=$1&method=$2 break;
 rewrite ^/([^/]+)/?$ /index.php?controller=$1 break;
-
-location /php-developer {
-rewrite ^/php-developer/?$ /jobs/back-end-ontwikkelaar redirect;
-}
-location /lead-ux-designer {
-rewrite ^/lead-ux-designer/?$ /jobs/lead-designer redirect;
-}
-location /technical-lead {
-rewrite ^/technical-lead/?$ /jobs/technical-lead redirect;
-}
-location /ux-designer {
-rewrite ^/ux-designer/?$ /jobs/designer redirect;
-}
-location /project-manager-met-passie-voor-mobiel {
-rewrite ^/project-manager-met-passie-voor-mobiel/?$ /jobs/project-manager redirect;
-}
-location /work {
-rewrite ^/work/?$ /jobs/ redirect;
-}
-
-
-
