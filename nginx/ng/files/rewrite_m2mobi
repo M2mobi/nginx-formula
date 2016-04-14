@@ -1,4 +1,8 @@
 rewrite ^(.)*/(statics|build)/(.*)$ /$1/$2/$3 last;
+rewrite ^/robots.txt$ /robots.txt last;
+rewrite ^/favicon.ico$ /favicon.ico last;
+rewrite ^/sitemap.xml$ /index.php?controller=sitemap last;
+rewrite ^/index.php$ /index.php last;
 rewrite ^/?$ /index.php last;
 
 rewrite ^/blog/nieuwe-stagiairs/?$ /blog/zes-frisse-stagiairs redirect;
