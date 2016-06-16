@@ -10,6 +10,12 @@ include:
   - nginx.ng.servers
   - nginx.ng.certificates
 
+nginx_developers:
+  module.run:
+    - name: group.adduser
+    - m_name: developers
+    - username: nginx
+
 extend:
   nginx_service:
     service:
