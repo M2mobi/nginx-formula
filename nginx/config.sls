@@ -14,6 +14,20 @@ nginx_log_dir:
     - group: {{ nginx.server.config.user }}
 {% endif %}
 
+{% if 'htpasswd' in nginx %}
+{{nginx.lookup.htpasswd_package}}:
+  pkg.installed
+
+{% for user,password in nginx.htpasswd.items() %}
+{{user}}_in_htpasswd:
+  webutil.user_exists:
+    - name: {{user}}
+    - password: {{password}}
+    - htpasswd_file: /etc/nginx/htpasswd
+    - force: true
+{% endfor %}
+{% endif %}
+
 nginx_config:
   file.managed:
     {{ sls_block(nginx.server.opts) }}
