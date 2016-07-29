@@ -13,12 +13,16 @@ include:
 nginx_developers:
   module.run:
     - name: group.adduser
-{% if salt['grains.get']('ec2_tags:role', 'bitbucket') == '' %}
-    - m_name: stash
-{% else %}
     - m_name: developers
-{% endif %}
     - username: nginx
+
+{% if salt['grains.get']('ec2_tags:role', '') == 'bitbucket' %}
+nginx_stash:
+  module.run:
+    - name: group.adduser
+    - m_name: stash
+    - username: nginx
+{% endif %}
 
 extend:
   nginx_service:
