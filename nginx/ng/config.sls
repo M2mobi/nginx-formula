@@ -50,6 +50,11 @@ nginx_rewrite_lunr:
     - name: /etc/nginx/rewrite_lunr
     - source: salt://nginx/ng/files/rewrite_lunr
 
+nginx_rewrite_lunr_api:
+  file.managed:
+    - name: /etc/nginx/rewrite_lunr_api
+    - source: salt://nginx/ng/files/rewrite_lunr_api
+
 nginx_rewrite_m2mobi:
   file.managed:
     - name: /etc/nginx/rewrite_m2mobi
