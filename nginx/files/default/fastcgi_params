@@ -21,5 +21,12 @@ fastcgi_param  SERVER_ADDR        $server_addr;
 fastcgi_param  SERVER_PORT        $server_port;
 fastcgi_param  SERVER_NAME        $server_name;
 
+fastcgi_param  SSL_CLIENT_VERIFY   $ssl_client_verify if_not_empty;
+fastcgi_param  SSL_CLIENT_S_DN     $ssl_client_s_dn if_not_empty;
+fastcgi_param  SSL_CLIENT_I_DN     $ssl_client_i_dn if_not_empty;
+fastcgi_param  SSL_CLIENT_M_SERIAL $ssl_client_serial if_not_empty;
+fastcgi_param  SSL_SESSION_ID      $ssl_session_id if_not_empty;
+fastcgi_param  SSL_PROTOCOL        $ssl_protocol if_not_empty;
+
 # PHP only, required if PHP was built with --enable-force-cgi-redirect
 fastcgi_param  REDIRECT_STATUS    200;
