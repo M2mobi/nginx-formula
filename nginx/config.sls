@@ -49,7 +49,10 @@ nginx_config:
 nginx_fastcgi:
   file.managed:
     - name: /etc/nginx/fastcgi_params
-    - source: salt://nginx/files/default/fastcgi_params
+    - source: salt://nginx/ng/files/fastcgi_params
+    - template: jinja
+    - context:
+        config: {{ nginx.server.fastcgi|json() }}
 
 nginx_rewrite_lunr:
   file.managed:
