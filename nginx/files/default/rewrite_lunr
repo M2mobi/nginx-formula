@@ -1,6 +1,7 @@
 rewrite ^(.)*/(statics|build)/(.*)$ /$1/$2/$3 last;
 rewrite ^/robots.txt$ /robots.txt last;
 rewrite ^/favicon.ico$ /favicon.ico last;
+rewrite ^/.well-known/(.*)$ /.well-known/$1 last;
 rewrite ^/?$ /index.php last;
 rewrite ^/([a-zA-Z][a-zA-Z])/?$ /index.php?lang=$1 last;
 rewrite ^/([a-zA-Z][a-zA-Z])/([^/]*)/?$ /index.php?lang=$1&controller=$2 last;
