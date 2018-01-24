@@ -1,0 +1,3 @@
+{% for key, value in config.items() -%}
+uwsgi_param  {{ key }}  {{ value }};
+{% endfor -%}
