@@ -72,15 +72,20 @@ nginx_rewrite_lunr_api:
     - name: /etc/nginx/rewrite_lunr_api
     - source: salt://nginx/ng/files/rewrite_lunr_api
 
+nginx_rewrite_m2mobi:
+  file.managed:
+    - name: /etc/nginx/rewrite_m2mobi
+    - source: salt://nginx/files/default/rewrite_m2mobi
+
 nginx_php:
   file.managed:
     - name: /etc/nginx/php.conf
     - source: salt://nginx/files/default/php.conf
 
-nginx_rewrite_m2mobi:
+nginx_php_cors:
   file.managed:
-    - name: /etc/nginx/rewrite_m2mobi
-    - source: salt://nginx/files/default/rewrite_m2mobi
+    - name: /etc/nginx/php_cors.conf
+    - source: salt://nginx/ng/files/php_cors.conf
 
 nginx_default_config:
   file.managed:
