@@ -1,5 +1,6 @@
 rewrite ^(.)*/(statics|build)/(.*)$ /$1/$2/$3 break;
 rewrite ^/robots.txt$ /robots.txt break;
+rewrite ^/loaderio(.*)$ /loaderio$1 break;
 rewrite ^/favicon.ico$ /favicon.ico break;
 rewrite ^/elb-status$ /elb-status break;
 rewrite ^/.well-known/(.*)$ /.well-known/$1 break;
