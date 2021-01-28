@@ -57,7 +57,7 @@ nginx_fastcgi:
 nginx_uwsgi:
   file.managed:
     - name: /etc/nginx/uwsgi_params
-    - source: salt://nginx/ng/files/default/uwsgi_params
+    - source: salt://nginx/files/default/uwsgi_params
     - template: jinja
     - context:
         config: {{ nginx.server.uwsgi|json() }}
@@ -70,7 +70,7 @@ nginx_rewrite_lunr:
 nginx_rewrite_lunr_api:
   file.managed:
     - name: /etc/nginx/rewrite_lunr_api
-    - source: salt://nginx/ng/files/rewrite_lunr_api
+    - source: salt://nginx/files/default/rewrite_lunr_api
 
 nginx_rewrite_m2mobi:
   file.managed:
@@ -85,7 +85,7 @@ nginx_php:
 nginx_php_cors:
   file.managed:
     - name: /etc/nginx/php_cors.conf
-    - source: salt://nginx/ng/files/php_cors.conf
+    - source: salt://nginx/files/default/php_cors.conf
 
 nginx_default_config:
   file.managed:
