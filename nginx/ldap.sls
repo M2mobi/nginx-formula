@@ -2,7 +2,7 @@ nginx_ldap_install:
   pkg.installed:
     - name: nginx-ldap-auth
 
-nginx_service:
+nginx_ldap_service:
   service.running:
     - name: nginx-ldap-auth
     - enable: True
